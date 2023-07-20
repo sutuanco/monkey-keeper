@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+
+  nodejs:
+    container_name: node
+    image: node:18-buster-slim
+    network_mode: host
+    working_dir: /app
+    tty: true
+    user: 1000:1000
+    volumes:
+      - ./:/app
