@@ -1,6 +1,8 @@
 const express = require("express")
 const cors = require("cors")
+const db = require("./src/database/pg")
 
+require('dotenv').config()
 const PORT = 8000
 
 const app = express()
@@ -10,6 +12,10 @@ app.use(cors({
 
 app.get("/", (req, res) => {
     res.send("Hello world!")
-})
+});
 
-app.listen(PORT, () => console.log(`Listening on port ${PORT} ...`))
+(async () => {
+    await db.connect_db()
+    app.listen(PORT, () => console.log(`Listening on port ${PORT} ...`))
+})();
+
