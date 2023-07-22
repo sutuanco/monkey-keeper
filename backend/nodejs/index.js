@@ -11,6 +11,7 @@ app.use(cors({
 }))
 
 app.get("/", (req, res) => {
+    console.log("Request received !")
     res.send("Hello world!")
 });
 

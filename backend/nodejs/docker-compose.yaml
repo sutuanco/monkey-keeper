@@ -5,7 +5,8 @@ services:
   nodejs:
     container_name: node
     image: node:18-buster-slim
-    network_mode: host
+    ports:
+      - 8000:8000
     working_dir: /app
     tty: true
     user: 1000:1000
